@@ -58,7 +58,8 @@ export default {
 
   .img-wrapper {
     img {
-      width: 60%;
+      width: 90%;
+      margin-bottom: 1rem;
     }
   }
 }

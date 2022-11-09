@@ -27,6 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .keyboard {
+  margin-top: 1rem;
   .letter {
     background-color: #662d91;
     color: #fff;
