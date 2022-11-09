@@ -2,7 +2,7 @@
   <transition name="fade">
     <Setup @game-init="gameInit" v-show="showSetup" :categories="categories" :difficulty="difficulty" />
   </transition>
-  <Game :data="categories" />
+  <Game :game-data="gameData" />
 </template>
 
 <script>
@@ -44,14 +44,34 @@ export default {
         medium: 5,
         hard: 2,
       },
-      showSetup: true,
+      showSetup: false,
+      gameData: {
+        title: null,
+        level: null,
+        titleSecret: '_________ _____ __',
+        hint: 'American multinational automaker that has its main headquarters in Dearborn, Michigan, a suburb of Detroit.',
+      }
     }
   },
   methods: {
+    randomEl(el) {
+      const length = Object.keys(el).length;
+      return Math.floor(Math.random() * length + 1);
+    },
     gameInit(category, level) {
-      console.log(category)
-      console.log(level)
       this.showSetup = false
+      this.chosenDifficulty = level
+
+      const randomCategory = category[this.randomEl(category)]
+      const secretTitle = randomCategory.title.split('')
+
+      secretTitle.forEach(el => {
+        let letter;
+        if(el === ' ') letter = ' ';
+        else letter = '_'; 
+        this.gameData.titleSecret += letter
+      });
+      gameData.hint = randomCategory.hint
     },
   }
 }
