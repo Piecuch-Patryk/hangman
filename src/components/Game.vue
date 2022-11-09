@@ -5,7 +5,7 @@
       <h2>Don't do it at home!</h2>
     </div>
     <div class="img-wrapper">
-      <img src="@/assets/game/gibbet0.png" alt="">
+      <img :src="require(`@/assets/game/gibbet${index}.png`)" alt="Hangman on a tree.">
     </div>
     <div>
       <p class="secret">{{ gameData.titleSecret }}</p>
@@ -34,6 +34,7 @@ export default {
   },
   props: {
     gameData: Object,
+    index: Number,
   }
 }
 </script>

@@ -36,6 +36,16 @@ export default {
     border: none;
     border-radius: .2rem;
     margin: .1rem;
+    transition: scale .2s ease;
+
+    &.success {
+      transform: scale(.9);
+      background-color: green;
+    }
+
+    &.failure {
+      background-color: red;
+    }
   }
 }
 </style>
