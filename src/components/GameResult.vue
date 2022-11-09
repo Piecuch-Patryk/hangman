@@ -253,4 +253,19 @@ export default {
         margin-left: 80%; }
     }
   }
+
+  @media (min-width: 768px) {
+    .game-result {
+      img {
+        width: 60%;
+      }
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .game-result {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  }
 </style>

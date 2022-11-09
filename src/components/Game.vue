@@ -63,4 +63,22 @@ export default {
     }
   }
 }
+
+@media (min-width: 768px) {
+  .game {
+
+    .img-wrapper {
+
+      img {
+        width: 50%;
+      }
+    }
+
+    .hint {
+      width: 50%;
+      margin: 2rem auto;
+      font-size: 1.5rem;
+    }
+  }
+}
 </style>

@@ -6,7 +6,7 @@
   <Game :index="image" :game-data="gameData" @validate-letter="validate" />
 
   <transition name="fade">
-    <GameResult v-show="showGameResult" :msg="gameResult" :gameOver="gameOver" :gameWon="gameWon" />
+    <GameResult v-show="showGameResult" :msg="gameResult" :gameWon="gameWon" />
   </transition>
 </template>
 
@@ -161,5 +161,12 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (min-width: 1000px) {
+  #app {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }
 </style>

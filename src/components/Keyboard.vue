@@ -49,4 +49,15 @@ export default {
     }
   }
 }
+
+@media (min-width: 768px) {
+  .keyboard {
+    .letter {
+      width: 2.5rem;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      font-size: 1.8rem;
+    }
+  }
+}
 </style>

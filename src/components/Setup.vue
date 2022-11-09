@@ -62,6 +62,7 @@ export default {
   text-align: center;
 
   .inner {
+    width: 100%;
     background-color: #662d91;
     padding: 1rem;
     color: #ddd;
@@ -90,6 +91,14 @@ export default {
   .img-wrapper {
     img {
       width: 100%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .setup {
+    .img-wrapper {
+      margin-top: 4rem;
     }
   }
 }
