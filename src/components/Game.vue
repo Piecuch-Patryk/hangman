@@ -14,7 +14,7 @@
       <p>{{ gameData.hint }}</p>
     </div>
     <div>
-      <Keyboard />
+      <Keyboard @validate-letter="$emit('validate-letter', $event)" />
     </div>
   </div>
 </template>
