@@ -2,23 +2,25 @@
   <transition name="fade">
     <Setup @game-init="gameInit" v-show="showSetup" :categories="categories" :difficulty="difficulty" />
   </transition>
+
   <Game :index="image" :game-data="gameData" @validate-letter="validate" />
+
   <transition name="fade">
-    <GameOver v-show="isGameOver" />
+    <GameResult v-show="showGameResult" :msg="gameResult" :gameOver="gameOver" :gameWon="gameWon" />
   </transition>
 </template>
 
 <script>
 import Setup from './components/Setup.vue'
 import Game from './components/Game.vue'
-import GameOver from './components/GameOver.vue'
+import GameResult from './components/GameResult.vue'
 
 export default {
   name: 'App',
   components: {
     Setup,
     Game,
-    GameOver,
+    GameResult,
   },
   data() {
     return {
@@ -57,19 +59,22 @@ export default {
         hint: '',
       },
       image: 0,
-      url: '',
-      isGameOver: false,
+      showGameResult: false,
+      gameResult: '',
+      gameWon: false,
     }
   },
   methods: {
     gameOver() {
-      this.isGameOver = true
+      this.gameResult = 'Game Over! ;('
+      this.showGameResult = true
     },
     setImage(boolean) {
-      if(this.image === 9) {
+      if(this.image >= 9) {
         setTimeout(() => {
           this.gameOver()
         }, 500)
+        return
       }
       if(boolean) this.image++
     },
@@ -89,7 +94,13 @@ export default {
           hiddenSecretSentence[el] = letter;
       });
 
-      this.gameData.titleSecret = hiddenSecretSentence.join('');
+      this.gameData.titleSecret = hiddenSecretSentence.join('')
+
+      if(!hiddenSecretSentence.includes('_')) {
+        this.showGameResult = true
+        this.gameResult = 'Congratulations!'
+        this.gameWon = true
+      }
     },
     validate($event) {
       const letter = $event.target.innerText.toLowerCase()
