@@ -60,6 +60,7 @@ export default {
   align-items: center;
   background-color: #fff;
   text-align: center;
+  overflow: hidden;
 
   .inner {
     width: 100%;
